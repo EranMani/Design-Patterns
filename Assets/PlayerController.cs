@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
         float translation = Input.GetAxis("Vertical") * speed;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
 
-        // Make it move 10 meters per second instead of 10 meters per frame...
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;
 
