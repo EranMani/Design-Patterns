@@ -10,3 +10,6 @@
 * EXAMPLE: creating a scene with 400 cubes. Instead of creating and storing each cube object in memory, we will store one cube object that will be passed to the other cubes. This will make the cube objects 
            point to the same cube object in memory instead of pointing to 400 cubes in memory.
 * SCRIPTABLE OBJECTS - follows the flyweight pattern because they are a really great way of storing(bundle) up the data for any particular thing and take it out of any code that youve got attached to the actual prefab
+	* To use a scriptable object in unity it must be an asset of the menu system
+	* Scriptable object type is an asset
+	* In order to hook up the scriptable object data into a prefab, the scriptable object must sit in a generic script, and that script will be attached as a component to the prefab itself
