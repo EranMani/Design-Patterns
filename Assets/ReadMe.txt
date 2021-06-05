@@ -13,3 +13,4 @@
 	* To use a scriptable object in unity it must be an asset of the menu system
 	* Scriptable object type is an asset
 	* In order to hook up the scriptable object data into a prefab, the scriptable object must sit in a generic script, and that script will be attached as a component to the prefab itself
+	* Scriptable object data script should contain GET property in order for it to be retrieved by other scripts

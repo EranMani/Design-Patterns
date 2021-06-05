@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour {
     Animator animator;
     static public bool dead = false;
 
-    void Start(){
+    void Start()
+    {
         rb = this.GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         animator.SetBool("Idling", true);
     }
 	
     // Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () 
+    {
 	
         float translation = Input.GetAxis("Vertical") * speed;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
@@ -41,7 +43,17 @@ public class PlayerController : MonoBehaviour {
             animator.SetTrigger("isDead");
             this.enabled = false;
         }
-
-
+    }
+   
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Tree")
+        {
+            PlantData.THREAT threat = other.gameObject.GetComponent<Plant>().Threat;
+            if (threat == PlantData.THREAT.High)
+            {
+                dead = true;
+            }
+        }      
     }
 }
