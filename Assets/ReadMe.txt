@@ -14,3 +14,8 @@
 	* Scriptable object type is an asset
 	* In order to hook up the scriptable object data into a prefab, the scriptable object must sit in a generic script, and that script will be attached as a component to the prefab itself
 	* Scriptable object data script should contain GET property in order for it to be retrieved by other scripts
+* ECS - 
+	* Entity - Something that will not appear in the hierarchy but yet can have millions of them in the game scene. These entities share their
+			   components. They all point to the same components
+			   It is like a scriptable object behaviour, but with more complex layer
+			   The only to find entities is by the components that are attached to them
