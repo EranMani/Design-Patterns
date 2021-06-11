@@ -33,5 +33,13 @@ public class AIControl : MonoBehaviour {
         {
             PickGoalLocation();
         }
+
+        foreach (GameObject go in GameEnvironment.Singleton.Obstacles)
+        {
+            if (Vector3.Distance(go.transform.position, this.transform.position) < 5)
+            {
+                agent.SetDestination(lastGoal);
+            }
+        }
 	}
 }
