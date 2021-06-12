@@ -11,6 +11,11 @@ feature/Singleton_Pattern
 	* There can only ever be one instance of the class active at a time.
 	* Tight connections. Modifying the singleton can easily break all other code that depends on it. Requiring a lot of refactoring.
 	* No polymorphism.
+	* It can be hard to trace the dependencies related to a singleton, thus changing it may create errors when working with a bigger project.
+	  Hiding dependencies will make it difficult to update the project on the long run.
+	* Mono-Behaviour based singletons must destroy themselves if another one exists when they are created. For example, if the singleton makes a call
+	  to DontDestroyOnLoad in order to persist through scene changes, there is a chance that there will be an instance of that singleton
+	  in the new scene, and depending on the order they are arranged in the hierarachy, the wrong one could be deleted.
 Not very testable.
 * The advantage of using singletons in Unity, rather than static parameters and methods, 
   is that static classes are lazy-loaded when they are first referenced, but must have an empty static constructor. 
