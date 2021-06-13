@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public sealed class GameEnvironment
 {
     private static GameEnvironment instance;
     private List<GameObject> checkPoints = new List<GameObject>();
-    public List<GameObject> CheckPoints { get { return CheckPoints; } }
+    public List<GameObject> CheckPoints { get { return checkPoints; } }
 
     public static GameEnvironment Singleton
     {
@@ -16,6 +17,7 @@ public sealed class GameEnvironment
             {
                 instance = new GameEnvironment();
                 instance.CheckPoints.AddRange(GameObject.FindGameObjectsWithTag("Checkpoint"));
+                instance.checkPoints = instance.checkPoints.OrderBy(Waypoint => Waypoint.name).ToList();
             }
             return instance;
         }
