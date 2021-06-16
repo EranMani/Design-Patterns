@@ -5,11 +5,17 @@ using UnityEngine;
 public class Drive : MonoBehaviour
 {
     public float speed = 10.0f;
+    public GameObject bulletPrefab;
 
     void Update()
     {
         float translation = Input.GetAxis("Horizontal") * speed;
         translation *= Time.deltaTime;
         transform.Translate(translation, 0, 0);
+
+        if (Input.GetKeyDown("space"))
+        {
+            Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+        }
     }
 }
