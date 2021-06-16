@@ -8,6 +8,10 @@ public class PoolItem
 {
     public GameObject prefab;
     public int amount;
+    // In case we run out of items we can grant the ability to create some more
+    // This will make sure that the pool will have a ready supply of the
+    // Absoultely necessary game objects that are needed to be in the game environment
+    public bool expandable;
 }
 
 public class Pool : MonoBehaviour
@@ -30,6 +34,19 @@ public class Pool : MonoBehaviour
             if (!pooledItems[i].activeInHierarchy && pooledItems[i].tag == tag)
             {
                 return pooledItems[i];
+            }
+        }
+
+        // In case the item is expandable, it can be added dynamically through the game
+        // This will work in cases when we cant determine the amount of items we need throughout the game
+        foreach (PoolItem item in items)
+        {
+            if (item.prefab.tag == tag && item.expandable)
+            {
+                GameObject obj = Instantiate(item.prefab);
+                obj.SetActive(false);
+                pooledItems.Add(obj);
+                return obj;
             }
         }
 
