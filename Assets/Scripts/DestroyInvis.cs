@@ -7,6 +7,8 @@ public class DestroyInvis : MonoBehaviour
     private void OnBecameInvisible()
     {
         // Work only on object with renderer component
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+
+        this.gameObject.SetActive(false);
     }
 }

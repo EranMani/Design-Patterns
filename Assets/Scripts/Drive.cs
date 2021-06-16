@@ -15,7 +15,12 @@ public class Drive : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            Instantiate(bulletPrefab, this.transform.position, Quaternion.identity);
+            GameObject bullet = Pool.singleton.Get("Bullet");
+            if (bullet != null)
+            {
+                bullet.transform.position = this.transform.position;
+                bullet.SetActive(true);
+            }
         }
     }
 }

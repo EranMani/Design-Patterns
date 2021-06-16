@@ -7,4 +7,8 @@ feature/Object_Pooling_Pattern
 * To prevent Garbage Collector issues (CPU Spikes) in games with many spawning and destroying objects, a method called Object Pooling can be used.
 * Object pooling is where you pre-instantiate all the objects you’ll need at any specific moment before gameplay - for instance, during a loading screen
 * Instead of creating new objects and destroying old ones during gameplay, your game reuses objects from a “pool”.
-* 
+* The pool is like an inventory that has an amount of things in it and it has a limited amount of things in it.
+  We are going to be able to borrow from the inventory and keep borrowing from the inventory until it
+  it runs out and then when we are not using those items anymore, we can put them back into the inventory
+  so that they can be used again.
+* When an object is in the pool, it will remain inactive
